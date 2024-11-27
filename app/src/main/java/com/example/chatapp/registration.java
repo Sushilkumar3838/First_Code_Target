@@ -110,6 +110,7 @@ public class registration extends AppCompatActivity {
                                                                     finish();
                                                                 } else {
                                                                     Toast.makeText(registration.this, "Enter in creating the user", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(registration.this, "First to second work", Toast.LENGTH_SHORT).show();
                                                                 }
                                                             }
                                                         });

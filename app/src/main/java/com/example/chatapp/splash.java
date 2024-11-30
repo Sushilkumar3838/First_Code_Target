@@ -17,12 +17,12 @@ public class splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
-
+      //  getSupportActionBar().hide();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(splash.this,login.class);
+                Intent intent=new Intent(splash.this,registration.class);
                 startActivity(intent);
                 finish();
             }

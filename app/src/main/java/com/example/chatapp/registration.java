@@ -45,6 +45,7 @@ public class registration extends AppCompatActivity {
         // EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registration);
         database=FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
         storage=FirebaseStorage.getInstance();
         loginbut = findViewById(R.id.loginbut);
         rg_username = findViewById(R.id.rgusername);

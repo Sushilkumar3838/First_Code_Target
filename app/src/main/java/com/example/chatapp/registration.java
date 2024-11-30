@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-//import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class registration extends AppCompatActivity {
     TextView loginbut;
@@ -73,15 +73,15 @@ public class registration extends AppCompatActivity {
                 String cPassword = rg_repassword.getText().toString();
                 String status = "Hey I'm Using This Application";
 
-                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(cPassword)) {
-                    Toast.makeText(registration.this, "Please Enter Valid Information", Toast.LENGTH_SHORT).show();
-                } else if (!email.matches(emailPattern)) {
-                    rg_email.setError("Type A Valid Email Here");
-                } else if (password.length() < 6) {
-                    rg_password.setError("Password Must Be 6 Characters Or More ");
-                } else if (!password.equals(cPassword)) {
-                    rg_password.setError("The password Do not Match");
-                } else {
+//                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(cPassword)) {
+//                    Toast.makeText(registration.this, "Please Enter Valid Information", Toast.LENGTH_SHORT).show();
+//                } else if (!email.matches(emailPattern)) {
+//                    rg_email.setError("Type A Valid Email Here");
+//                } else if (password.length() < 6) {
+//                    rg_password.setError("Password Must Be 6 Characters Or More ");
+//                } else if (!password.equals(cPassword)) {
+//                    rg_password.setError("The password Do not Match");
+//                } else {
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -89,53 +89,55 @@ public class registration extends AppCompatActivity {
                                 String id = task.getResult().getUser().getUid();
                                 DatabaseReference reference = database.getReference().child("User").child(id);
                                 StorageReference storageReference = storage.getReference().child("User").child(id);
+                                Intent intent = new Intent(registration.this, login.class);
+                                startActivity(intent);
 
 
-                                if (imageURI != null) {
-                                    storageReference.putFile(imageURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                                            if (task.isSuccessful()) {
-                                                storageReference.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Uri> task) {
-                                                        imageuri = imageuri.toString();
-                                                        Users users = new Users(id, name, email, password, cPassword, imageuri);
-                                                        reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<Void> task) {
-                                                                if (task.isSuccessful()) {
-                                                                    Intent intent = new Intent(registration.this, MainActivity.class);
-                                                                    startActivity(intent);
-                                                                    finish();
-                                                                } else {
-                                                                    Toast.makeText(registration.this, "Enter in creating the user", Toast.LENGTH_SHORT).show();
-                                                                    Toast.makeText(registration.this, "First to second work", Toast.LENGTH_SHORT).show();
-                                                                }
-                                                            }
-                                                        });
-                                                    }
-                                                });
-                                            }
-
-                                        }
-                                    });
-                                } else {
-                                    String status = "Hey I'm Using This Application";
-                                    Users users = new Users(id, name, email, password, imageuri, status);
-                                    reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Intent intent = new Intent(registration.this, MainActivity.class);
-                                                startActivity(intent);
-                                                finish();
-                                            } else {
-                                                Toast.makeText(registration.this, "Enter in creating the user", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
-                                }
+//                                if (imageURI != null) {
+//                                    storageReference.putFile(imageURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+//                                            if (task.isSuccessful()) {
+//                                                storageReference.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+//                                                    @Override
+//                                                    public void onComplete(@NonNull Task<Uri> task) {
+//                                                        imageuri = imageuri.toString();
+//                                                        Users users = new Users(id, name, email, password, cPassword, imageuri);
+//                                                        reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                                            @Override
+//                                                            public void onComplete(@NonNull Task<Void> task) {
+//                                                                if (task.isSuccessful()) {
+////                                                                    Intent intent = new Intent(registration.this, MainActivity.class);
+////                                                                    startActivity(intent);
+//                                                                    finish();
+//                                                                } else {
+//                                                                    Toast.makeText(registration.this, "Enter in creating the user", Toast.LENGTH_SHORT).show();
+//                                                                    Toast.makeText(registration.this, "First to second work", Toast.LENGTH_SHORT).show();
+//                                                                }
+//                                                            }
+//                                                        });
+//                                                    }
+//                                                });
+//                                            }
+//
+//                                        }
+//                                    });
+//                                } else {
+//                                    String status = "Hey I'm Using This Application";
+//                                    Users users = new Users(id, name, email, password, imageuri, status);
+//                                    reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<Void> task) {
+//                                            if (task.isSuccessful()) {
+//                                                Intent intent = new Intent(registration.this, MainActivity.class);
+//                                                startActivity(intent);
+//                                                finish();
+//                                            } else {
+//                                                Toast.makeText(registration.this, "Enter in creating the user", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        }
+//                                    });
+//                                }
                             }else {
                                 Toast.makeText(registration.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -144,11 +146,12 @@ public class registration extends AppCompatActivity {
                         
                     });
                 }
-            }
+
 
         });
-    }
 }
+}
+
 
 
 

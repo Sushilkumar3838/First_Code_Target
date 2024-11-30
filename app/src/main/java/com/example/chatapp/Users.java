@@ -3,8 +3,6 @@ package com.example.chatapp;
 public class Users {
     String profilepic,mail,userName,password,userId,lastMessage,status;
 
-    public Users(){}
-    // public Users(String id, String name, String email, String password, String cPassword, String imageuri){}
 
     public Users(String userId,String userName, String mail, String password, String profilepic,String status){
         this.userId=userId;

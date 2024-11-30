@@ -140,11 +140,11 @@
         app:layout_constraintVertical_bias="0.873" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/signupText"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:gravity="center"
-        android:text="Need an account?"
+        android:text="Need an account? signup"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,20 +153,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.92" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="124sp"
-        android:layout_height="24dp"
-        android:gravity="center"
-        android:text="SIGN UP!"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.978" />
+
 
 
 

@@ -12,9 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,13 +23,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-//import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class registration extends AppCompatActivity {
     TextView loginbut;
     EditText rg_username, rg_email,rg_password,rg_repassword;
     Button rg_signup;
-   // CircleImageView rg_profileImg;
+
     FirebaseAuth auth;
     Uri imageURI;
     String imageuri;
@@ -44,6 +42,7 @@ public class registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registration);
+        auth = FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         storage=FirebaseStorage.getInstance();
         loginbut = findViewById(R.id.loginbut);

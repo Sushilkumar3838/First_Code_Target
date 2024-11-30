@@ -6,14 +6,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +23,7 @@ import com.google.firebase.auth.TotpMultiFactorAssertion;
 public class login extends AppCompatActivity {
     Button button;
     EditText email,password;
+    TextView signuptext;
     FirebaseAuth auth;
     String emailPattern="[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
 
@@ -36,6 +36,8 @@ public class login extends AppCompatActivity {
         button=findViewById(R.id.logbutton);
         email=findViewById(R.id.editTextLogEmail);
         password=findViewById(R.id.editTextLogPassword);
+        signuptext = findViewById(R.id.signupText);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +73,14 @@ public class login extends AppCompatActivity {
                     }
                 });
                 }
+            }
+        });
+        signuptext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this , registration.class);
+                startActivity(intent);
+                finish();
             }
         });
 

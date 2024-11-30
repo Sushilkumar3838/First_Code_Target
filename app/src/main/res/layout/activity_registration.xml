@@ -8,7 +8,8 @@
     android:background="@drawable/two"
     tools:context=".registration">
 
-        <ImageView
+
+    <ImageView
         android:id="@+id/profilerg0"
         android:layout_width="151dp"
         android:layout_height="130dp"
@@ -55,6 +56,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.084"
         />
+
+
 
     <TextView
         android:id="@+id/textView4"
@@ -222,7 +225,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.446"
-         />
+        />
 
 
 
